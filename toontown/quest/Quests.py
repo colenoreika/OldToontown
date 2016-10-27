@@ -1196,9 +1196,56 @@ class CFONewbieQuest(CFOQuest, NewbieQuest):
             return self.getNumNewbies(avId, avList)
         else:
             return 0
+        
+class CEOQuest(CogQuest):
+    
+    def __init__(self, id, quest):
+        CogQuest.__init__(self, id, quest)
+        self.checkNumCEOs(self.quest[1])
+
+    
+    def getCogType(self):
+        return Any
+
+    
+    def getCogNameString(self):
+        numCogs = self.getNumCogs()
+        if numCogs == 1:
+            return TTLocalizer.ACogCEO
+        else:
+            return TTLocalizer.CogCEOs
+
+    
+    def doesCogCount(self, avId, cogDict, zoneId, avList):
+        return 0
+
+    
+    def doesCEOCount(self, avId, cogDict, zoneId, avList):
+        return self.isLocationMatch(zoneId)
 
 
+class CEONewbieQuest(CEOQuest, NewbieQuest):
+    
+    def __init__(self, id, quest):
+        CEOQuest.__init__(self, id, quest)
+        self.checkNewbieLevel(self.quest[2])
 
+    
+    def getNewbieLevel(self):
+        return self.quest[2]
+
+    
+    def getString(self):
+        return NewbieQuest.getString(self)
+
+    
+    def doesCEOCount(self, avId, cogDict, zoneId, avList):
+        if CEOQuest.doesCEOCount(self, avId, cogDict, zoneId, avList):
+            return self.getNumNewbies(avId, avList)
+        else:
+            return 0
+
+    
 class RescueQuest(VPQuest):
     
     def __init__(self, id, quest):
