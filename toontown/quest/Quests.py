@@ -71,7 +71,8 @@ BR_TIER = 11
 DL_TIER = 14
 LAWBOT_HQ_TIER = 18
 BOSSBOT_HQ_TIER = 32
-ELDER_TIER = 49
+RR_TIER = 49
+ELDER_TIER = 59
 LOOPING_FINAL_TIER = ELDER_TIER
 VISIT_QUEST_ID = 1000
 TROLLEY_QUEST_ID = 110
@@ -3298,6 +3299,7 @@ QuestDict = {
     5277: (BR_TIER + 1, Cont, (CogTrackQuest, Anywhere, 45, 'm'), Same, Same, 100, NA, TTLocalizer.QuestDialogDict[5277]),
     5301: (BR_TIER + 1, Start, (VisitQuest,), Any, 3304, NA, 5302, TTLocalizer.QuestDialogDict[5301]),
     5302: (BR_TIER + 1, Cont, (CogTrackQuest, Anywhere, 90, 'l'), Same, Same, 100, NA, TTLocalizer.QuestDialogDict[5302]),
+
     5303: (BR_TIER + 1, Start, (VisitQuest,), Any, 3318, NA, 5304, TTLocalizer.QuestDialogDict[5303]),
     5304: (BR_TIER + 1, Cont, (RecoverItemQuest, ToontownGlobals.TheBrrrgh, 1, 3024, VeryHard, 'l', 'track'), Same, Same, NA, 5305, TTLocalizer.QuestDialogDict[5304]),
     5305: (BR_TIER + 1, Cont, (CogLevelQuest, Anywhere, 20, 7), Same, Same, NA, 5306, TTLocalizer.QuestDialogDict[5305]),
@@ -4022,7 +4024,16 @@ QuestDict = {
     12029: (BOSSBOT_HQ_TIER + 14, Start, (SkeleReviveQuest, Anywhere, 1), Same, Same, 4214, NA, TTLocalizer.QuestDialogDict[12029]),
     12030: (BOSSBOT_HQ_TIER + 15, Start, (VisitQuest,), Any, 1222, NA, 12031, TTLocalizer.QuestDialogDict[12030]),
     12031: (BOSSBOT_HQ_TIER + 15, Start, (SkeleReviveQuest, Anywhere, 1), Same, Same, 4215, NA, TTLocalizer.QuestDialogDict[12031]),
-    12032: (BOSSBOT_HQ_TIER + 16, Start, (VisitQuest,), Any, 2001, 4216, NA, TTLocalizer.QuestDialogDict[12032]) }
+    12032: (BOSSBOT_HQ_TIER + 16, Start, (VisitQuest,), Any, 2001, 4216, NA, TTLocalizer.QuestDialogDict[12032]),
+    13000: (RR_TIER, Start, (VisitQuest,), Any, 2001, NA, 13001, TTLocalizer.QuestDialogDict[13000]),
+    13001: (RR_TIER, Start, (CogQuest, Anywhere, 25, 'tbc'), Same, Same, NA, NA, TTLocalizer.QuestDialogDict[13001]),
+    13002: (RR_TIER + 1, Start, (VisitQuest,), Any, 3129, NA, 13003, TTLocalizer.QuestDialogDict[13002]),
+    13003: (RR_TIER + 1, Start, (CEOQuest, ToontownGlobals.BossbotHQ, 3), Same, Same, 100, NA, TTLocalizer.QuestDialogDict[13003]),
+    13004: (RR_TIER + 1, Start, (VisitQuest,), Any, 2002, NA, 13005, TTLocalizer.QuestDialogDict[13004]),
+    13005: (RR_TIER + 1, Start, (RecoverItemQuest, ToontownGlobals.CashbotMintIntD, 1, 7015, Hard, 'ls'), Same, Same, 100, NA, TTLocalizer.QuestDialogDict[13005]),
+    13006: (RR_TIER + 1, Start, (VisitQuest,), Any, 4318, NA, 13007, TTLocalizer.QuestDialogDict[13006]),
+    13007: (RR_TIER + 1, Start, (CogLevelQuest, Anywhere, 25, 12), Same, Same, NA, 
+}
 Tier2QuestsDict = { }
 for (questId, questDesc) in QuestDict.items():
     if questDesc[QuestDictStartIndex] == Start:
@@ -5230,6 +5241,8 @@ RewardDict = {
     205: (MaxGagCarryReward, 60, TTLocalizer.QuestsSmallBackpack),
     206: (MaxGagCarryReward, 70, TTLocalizer.QuestsMediumBackpack),
     207: (MaxGagCarryReward, 80, TTLocalizer.QuestsLargeBackpack),
+    208: (MaxGagCarryReward, 90, TTLocalizer.QuestsHugeBackpack),
+    209: (MaxGagCarryReward, 100, TTLocalizer.QuestsGiganticBackpack),
     300: (TeleportReward, ToontownGlobals.ToontownCentral),
     301: (TeleportReward, ToontownGlobals.DonaldsDock),
     302: (TeleportReward, ToontownGlobals.DaisyGardens),
